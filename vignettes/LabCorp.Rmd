@@ -1,0 +1,47 @@
+---
+title: "LabCorp Location Data Workflow"
+date: '`r format(Sys.Date(),"%B %d, %Y")`'
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{LabCorp Location Data Workflow}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+The purpose of this vignette is to document and explain the workflow used to create a dataset of LabCorp lab locations. Some of the steps in this process require manual inputs from the user so cannot be built into functions. One of the goals of this document is to ensure the process is understandable and reproducible. 
+
+```{r}
+library(LabCorp)
+```
+
+### Step 1: Create a Search URL
+We want the addresses for all of [LabCorp's](http://www.labcorp.com) labs in a format we can use for plotting and future geographic analysis. The first step is to query their website so that it returns data on a few labs in small area and repeat the process until we've covered the entire US. 
+
+The LabCorp website has a search feature where you can enter criteria such as an address or zip code and the site will serve up the labs in that area.  When you click the search button, the site encodes the search criteria and a referer into a single URL and sends it to the server. This URL is called the request because the user is requesting information from the server. The server sends a response to the request. The referer is a tool for the server to track where request originates from and to validate that it's a valid request. It could change based on when you do the search or where you are searching from.  
+
+Great, so how do we get the referer?  We run the search manually once and get the referer using Chrome's developer tools.  Here's how: 
+
+1. Open Google Chrome and navigate to [http://www.labcorp.com](http://www.labcorp.com). 
+2. Right click anywhere on the page and click the 'Inspect' menu option. This will open the developer tools.
+3. Click the Network menu at the top of the developer tools. This menu captures a log of requests to and responses from the server.  Make sure the log is clear before proceding. 
+4. Use the form to search for a lab.  Enter a zipcodes, state or someother query parameter and click the search button. You should see a the network log populate as the website refreshes.  
+5. 
+
+
+```{r, tidy=F}
+referer<-paste0("/wps/portal/!ut/p/c1/04_SB8K8xLLM9MSSzPy8xBz9CP0os",
+                "_hACzO_QCM_IwMLo1ALAyNj1yBnQxNfAwN_U6B8JG55AyMCuv0",
+                "88nNT9SP1o8zjQ11Ngg09LY0N_M3DjA08DcPcfFwcjQwNgk30Q",
+                "_QjnYGKIvEqKsiNKDfUDVQEAO_Izxc!/dl2/d1/L0lJWm1abVp",
+                "tS0NsRS9vQXdRQUVFVUFBQ0FDeFFBQUlCQWxBQUFnREtVQUFDQ",
+                "VlaUUFBSUFqbEFBQWdDQlVBQUNBQWxRQUFJQUJWQUFBZ0FORzB",
+                "heEFBQWdHZ0EhIS9ZSTUwc3V5bHdBISEvN19VRTRTMUk5MzBPN",
+                "1YzMEkxVkZMREEyMTBTNC9zZWFyY2g!/")
+
+library(zipcode)
+data(zipcode)
+zips<-as.list(zipcode$zip)
+names(zips)[1:length(zips)]<- "zipCode"
+URLs<- sapply(1:5, function(x) makeurl(params=zips[x], referer=referer))
+```
+
