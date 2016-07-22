@@ -33,7 +33,7 @@ Great, so how do we get the referer?  We run the search manually once and get th
 
 6. With this screen open, you can see the request URL. The refer is buried in this request URL so you'll have to cut it out yourself.  The referal starts after the base URL so make sure to cut out the 'www.labcorp.com'.
 
-<img src="ScreenCapture2.png">
+<img src="ScreenCapture2.PNG">
 
 ```{r, tidy=F}
 referer<-paste0("/wps/portal/!ut/p/c1/04_SB8K8xLLM9MSSzPy8xBz9CP0os",
