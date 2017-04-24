@@ -14,4 +14,3 @@ a complete step-by-step instruction on how to use the package.
 vignette("LabCorp")
 
 }
-

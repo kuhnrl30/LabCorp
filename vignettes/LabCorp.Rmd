@@ -10,7 +10,10 @@ vignette: >
 
 The purpose of this document is to explain the workflow used to create the <code>LabLocations</code> dataset of LabCorp lab locations. Some of the steps in this process require manual inputs from the user so cannot be built into functions. One of the goals of this document is to ensure the process is understandable and reproducible. 
 
+```{r, echo=F}
+knitr::opts_chunk$set(eval=F)
 
+```
 
 ```{r}
 library(LabCorp)

@@ -15,4 +15,3 @@ character string
 \description{
 Retrieves the raw html response after passing the query string to the server
 }
-

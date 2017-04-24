@@ -15,4 +15,3 @@ dataframe
 \description{
 Executes the search query, retrieves the raw html, and extracts the location data into a dataframe.
 }
-

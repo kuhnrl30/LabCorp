@@ -3,4 +3,3 @@
 export(GetLabData)
 export(makeurl)
 importFrom(dplyr,"%>%")
-importFrom(xml2,"read_html")

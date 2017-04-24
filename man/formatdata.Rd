@@ -15,4 +15,3 @@ dataframe
 \description{
 Format a rough dataframe with location data into final form. Removes names and punctuation to leave only location values.
 }
-

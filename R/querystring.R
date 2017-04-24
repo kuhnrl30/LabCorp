@@ -11,6 +11,7 @@
 #' \item radius
 #' \item testType
 #' }
+#' importFrom("datasets", "state.abb")
 #' @return string
 querystring<- function(x){
   if(is.null(x$streetAddress) & is.null(x$city) & is.null(x$state) & is.null(x$zipCode)){

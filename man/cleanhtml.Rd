@@ -15,4 +15,3 @@ dataframe
 \description{
 This function takes a raw html string from the gethtml function and extracts the location data.  Each patient lab will include the address, city, state, zip code and lat-long coordinates for their location.
 }
-
