@@ -15,8 +15,7 @@ querystring(x)
 \item zipCode - string of 5 numeric characters
 \item radius
 \item testType
-}
-importFrom("datasets", "state.abb")}
+}}
 }
 \value{
 string

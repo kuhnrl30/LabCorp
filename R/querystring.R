@@ -11,8 +11,9 @@
 #' \item radius
 #' \item testType
 #' }
-#' importFrom("datasets", "state.abb")
 #' @return string
+#' @export
+#'
 querystring<- function(x){
   if(is.null(x$streetAddress) & is.null(x$city) & is.null(x$state) & is.null(x$zipCode)){
     stop("You must supply at lease one seach criteria")

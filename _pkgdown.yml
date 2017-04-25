@@ -1,0 +1,25 @@
+template:
+  ganalytics: 'UA-66230069-1'
+  params:
+    bootswatch: journal
+
+reference:
+- title: Functions
+  desc: ~
+  contents:
+  - GetLabData
+  - makeurl
+
+navbar:
+  title: LabCorp
+  type: default
+  left:
+  - text: Process
+    href: articles/LabCorp.html
+  - text: Functions
+    href: reference/index.html
+  right:
+    - text: ryankuhn.net
+      href: http://ryankuhn.net
+    - icon: fa-github
+      href: https://github.com/kuhnrl30/LabCorp

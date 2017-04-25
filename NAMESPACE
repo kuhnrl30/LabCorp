@@ -2,4 +2,5 @@
 
 export(GetLabData)
 export(makeurl)
+export(querystring)
 importFrom(dplyr,"%>%")

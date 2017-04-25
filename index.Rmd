@@ -1,0 +1,9 @@
+---
+title: "LabCorp"
+output: html_document
+description: R package for scraping the LabCorp website
+---
+
+# LabCorp  
+
+This project was to scrape the LabCorp website to create a database of service locations. This database was then used to visualize and copare LabCorp's coverage with that of Quest Diagnostics. The Process link above describes the process used to download that data and form a clean database.
